@@ -10,27 +10,26 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "LineEdit",
-"class": "TextLine",
+"class": "TerminalInput",
 "language": "GDScript",
-"path": "res://Terminal/TextLine/TextLine.gd"
+"path": "res://Terminal/Input/Input.gd"
+}, {
+"base": "Panel",
+"class": "TerminalOutput",
+"language": "GDScript",
+"path": "res://Terminal/Output/Output.gd"
 } ]
 _global_script_class_icons={
-"TextLine": ""
+"TerminalInput": "",
+"TerminalOutput": ""
 }
 
 [application]
 
 config/name="Terminal"
 run/main_scene="res://Terminal/Terminal.tscn"
+run/low_processor_mode=true
 config/icon="res://icon.png"
-
-[input]
-
-enter={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
 
 [physics]
 

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Terminal/Output/Output.gd" type="Script" id=1]
+
+[node name="Output" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+output_text_path = NodePath("OutputText")
+
+[node name="OutputText" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "hello"
+fit_content_height = true
+selection_enabled = true

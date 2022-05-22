@@ -50,4 +50,3 @@ margin_bottom = -4.0
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/NewTabButton" to="." method="_on_NewTabButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseTabButton" to="." method="_on_CloseTabButton_pressed"]
-[connection signal="tab_changed" from="VBoxContainer/TerminalWindowTabs" to="." method="_on_TerminalWindowTabs_tab_changed"]

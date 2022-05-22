@@ -1,44 +1,53 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Terminal/Terminal.gd" type="Script" id=1]
-[ext_resource path="res://Terminal/Input/Input.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Terminal/Output/Output.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Terminal/TerminalWindow/TerminalWindow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Terminal/Terminal.gd" type="Script" id=3]
 
 [node name="Terminal" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
-output_container_path = NodePath("PanelContainer/VBoxContainer/ScrollContainer/OutputContainer")
-output_scene = ExtResource( 3 )
-terminal_input_path = NodePath("PanelContainer/VBoxContainer/Input")
+script = ExtResource( 3 )
+TerminalWindow_scene = ExtResource( 1 )
+TerminalWindowTabs = NodePath("VBoxContainer/TerminalWindowTabs")
+NewTabButton = NodePath("VBoxContainer/HBoxContainer/NewTabButton")
+CloseTabButton = NodePath("VBoxContainer/HBoxContainer/CloseTabButton")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1.0
-margin_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1018.0
-margin_bottom = 594.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 20.0
+alignment = 2
 
-[node name="Input" parent="PanelContainer/VBoxContainer" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1011.0
-margin_bottom = 24.0
+[node name="NewTabButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 881.0
+margin_right = 947.0
+margin_bottom = 20.0
+text = "New Tab"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
-margin_top = 28.0
-margin_right = 1011.0
-margin_bottom = 587.0
+[node name="CloseTabButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 951.0
+margin_right = 1024.0
+margin_bottom = 20.0
+text = "Close Tab"
+
+[node name="TerminalWindowTabs" type="TabContainer" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+tab_align = 0
+drag_to_rearrange_enabled = true
 
-[node name="OutputContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer"]
-margin_right = 1011.0
-margin_bottom = 559.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="TerminalWindow1" parent="VBoxContainer/TerminalWindowTabs" instance=ExtResource( 1 )]
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NewTabButton" to="." method="_on_NewTabButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseTabButton" to="." method="_on_CloseTabButton_pressed"]
+[connection signal="tab_changed" from="VBoxContainer/TerminalWindowTabs" to="." method="_on_TerminalWindowTabs_tab_changed"]

@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "LineEdit",
 "class": "TerminalInput",
 "language": "GDScript",
-"path": "res://Terminal/Input/Input.gd"
+"path": "res://Terminal/TerminalWindow/Input/Input.gd"
 }, {
-"base": "Panel",
+"base": "Control",
 "class": "TerminalOutput",
 "language": "GDScript",
-"path": "res://Terminal/Output/Output.gd"
+"path": "res://Terminal/TerminalWindow/Output/Output.gd"
 } ]
 _global_script_class_icons={
 "TerminalInput": "",

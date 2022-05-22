@@ -39,8 +39,4 @@ func execute(input : String):
 	var output = []
 	var execution = OS.execute(program, params, true, output)
 	terminal_input.on_command_ran()
-	add_new_output_line(output)
-
-
-func add_new_output_line(output):
-	terminal_output.add_new_output(output)
+	terminal_output.add_new_output_line(input, output)

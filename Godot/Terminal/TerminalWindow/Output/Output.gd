@@ -20,5 +20,5 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func add_new_output(output):
-	output_text.text = str(output).lstrip("[").rstrip("]") + "\n" + output_text.text
+func add_new_output_line(input, output):
+	output_text.text = str(input + ": " + str(output).lstrip("[").rstrip("]") + "\n" + output_text.text)
